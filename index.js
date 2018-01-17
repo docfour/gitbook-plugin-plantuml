@@ -5,7 +5,7 @@ var mkdirp = require('mkdirp');
 var crypto = require('crypto');
 
 function parseUml(page, umlPath) {
-    uml = page.content.match(/^```uml((.*\n)+?)?```$/igm);
+    uml = page.content.match(/^```puml((.*\n)+?)?```$/igm);
     if (uml) {
         fs.writeFileSync(umlPath, uml);
         return true;
