@@ -6,7 +6,7 @@ var crypto = require('crypto');
 
 function parseUml(page, umlPath) {
     console.dir(page.content);
-    uml = page.content.match(/^```puml((.*\n)+?)?```$/igm);
+    uml = page.content.match(/```puml(.*)```/igm);
     console.log("parse state");
     console.log(uml);
     if (uml) {
