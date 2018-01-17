@@ -6,6 +6,8 @@ var crypto = require('crypto');
 
 function parseUml(page, umlPath) {
     uml = page.content.match(/^```puml((.*\n)+?)?```$/igm);
+    console.log("parse state");
+    console.log(uml);
     if (uml) {
         fs.writeFileSync(umlPath, uml);
         return true;
@@ -100,7 +102,8 @@ module.exports = {
             umlPath = './assets/images/uml/' + chapterPath + '/' + baseName + '.uml'
 
             mkdirp.sync('./assets/images/uml/' + chapterPath);
-
+            console.log(umlPath);
+            
             var hasUml = parseUml(page, umlPath);
             if (!hasUml) { return page; }
 
